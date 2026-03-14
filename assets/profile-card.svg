@@ -1,0 +1,214 @@
+<svg width="700" height="380" viewBox="0 0 700 380" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Spinning ring gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="40%" stop-color="#0ea5e9"/>
+      <stop offset="70%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#00d4ff"/>
+    </linearGradient>
+
+    <!-- Card background gradient -->
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020817"/>
+      <stop offset="50%" stop-color="#0a1628"/>
+      <stop offset="100%" stop-color="#020817"/>
+    </linearGradient>
+
+    <!-- Top bar scan gradient -->
+    <linearGradient id="topBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#020817" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#00d4ff"/>
+      <stop offset="70%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#020817" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip for avatar circle -->
+    <clipPath id="avatarClip">
+      <circle cx="90" cy="130" r="46"/>
+    </clipPath>
+
+    <!-- Clip for card rounded rect -->
+    <clipPath id="cardClip">
+      <rect x="10" y="10" width="680" height="360" rx="18"/>
+    </clipPath>
+
+    <!-- Grid pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#00d4ff" stroke-width="0.4" opacity="0.06"/>
+    </pattern>
+  </defs>
+
+  <!-- Card background -->
+  <rect x="10" y="10" width="680" height="360" rx="18" fill="url(#cardBg)" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.2"/>
+
+  <!-- Grid overlay -->
+  <rect x="10" y="10" width="680" height="360" rx="18" fill="url(#grid)" clip-path="url(#cardClip)"/>
+
+  <!-- Top scan bar -->
+  <rect x="10" y="10" width="680" height="3" rx="1.5" fill="url(#topBar)">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Corner brackets -->
+  <path d="M26 26 L26 14 L38 14" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  <path d="M662 26 L662 14 L650 14" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  <path d="M26 354 L26 366 L38 366" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  <path d="M662 354 L662 366 L650 366" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-opacity="0.5"/>
+
+  <!-- Scanline sweep -->
+  <rect x="10" y="10" width="680" height="60" rx="0" fill="url(#scanGrad)" opacity="0.6" clip-path="url(#cardClip)">
+    <animateTransform attributeName="transform" type="translate" from="0,0" to="0,340" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.03;0.03;0" keyTimes="0;0.1;0.9;1" dur="6s" repeatCount="indefinite"/>
+  </rect>
+  <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#00d4ff" stop-opacity="0.04"/>
+    <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- ══ SPINNING RING ══ -->
+  <g transform="translate(90,130)">
+    <!-- Outer spinning ring -->
+    <circle r="52" fill="none" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="326" stroke-dashoffset="82" opacity="0.9">
+      <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Inner static ring -->
+    <circle r="48" fill="#020817" stroke="#00d4ff" stroke-width="1" stroke-opacity="0.15"/>
+  </g>
+
+  <!-- Avatar image -->
+  <image href="https://avatars.githubusercontent.com/u/155253356?v=4" x="44" y="84" width="92" height="92" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
+
+  <!-- Online dot -->
+  <circle cx="124" cy="164" r="7" fill="#020817"/>
+  <circle cx="124" cy="164" r="5.5" fill="#22d35a">
+    <animate attributeName="r" values="5.5;7.5;5.5" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="124" cy="164" r="5.5" fill="#22d35a"/>
+
+  <!-- ══ NAME & ROLE ══ -->
+  <text x="158" y="102" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="22" font-weight="700" fill="#e0f2fe" letter-spacing="-0.5">Riyad Hosen</text>
+
+  <!-- Alias badge -->
+  <rect x="158" y="110" width="68" height="18" rx="5" fill="#00d4ff" fill-opacity="0.1" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.3"/>
+  <text x="192" y="122.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" text-anchor="middle" letter-spacing="1.5">CHARLIE</text>
+
+  <!-- Role line -->
+  <text x="158" y="145" font-family="'JetBrains Mono', monospace" font-size="11" fill="#7dd3fc" letter-spacing="0.3">MERN Stack Developer · Software Engineering Student</text>
+
+  <!-- Meta badges -->
+  <rect x="158" y="153" width="110" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.08" stroke="#0ea5e9" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="213" y="164.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#38bdf8" text-anchor="middle">📍 Dhaka, Bangladesh</text>
+
+  <rect x="276" y="153" width="60" height="16" rx="8" fill="#0ea5e9" fill-opacity="0.08" stroke="#0ea5e9" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="306" y="164.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#38bdf8" text-anchor="middle">🎓 IUT</text>
+
+  <rect x="344" y="153" width="108" height="16" rx="8" fill="#22d35a" fill-opacity="0.08" stroke="#22d35a" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="398" y="164.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#4ade80" text-anchor="middle">🟢 Open to Work</text>
+
+  <!-- ══ DIVIDER ══ -->
+  <line x1="36" y1="192" x2="664" y2="192" stroke="#00d4ff" stroke-width="0.5" stroke-opacity="0.15"/>
+
+  <!-- ══ CODE BLOCK ══ -->
+  <!-- Code block bg -->
+  <rect x="36" y="202" width="390" height="82" rx="8" fill="#00d4ff" fill-opacity="0.03" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.1"/>
+  <!-- Left accent bar -->
+  <rect x="36" y="202" width="3" height="82" rx="1.5" fill="#00d4ff" fill-opacity="0.6"/>
+
+  <!-- Code lines -->
+  <!-- Line 1 -->
+  <text x="50" y="222" font-family="'JetBrains Mono', monospace" font-size="11">
+    <tspan fill="#00d4ff">const </tspan>
+    <tspan fill="#38bdf8">stack </tspan>
+    <tspan fill="#475569">= </tspan>
+    <tspan fill="#7dd3fc">"Next.js + TypeScript"</tspan>
+    <tspan fill="#00d4ff" opacity="1">
+      <animate attributeName="opacity" values="1;0;1" dur="0.9s" repeatCount="indefinite"/>▋</tspan>
+  </text>
+  <!-- Line 2 -->
+  <text x="50" y="242" font-family="'JetBrains Mono', monospace" font-size="11">
+    <tspan fill="#00d4ff">const </tspan>
+    <tspan fill="#38bdf8">learning </tspan>
+    <tspan fill="#475569">= </tspan>
+    <tspan fill="#a5b4fc">["App Router", "System Design"]</tspan>
+  </text>
+  <!-- Line 3 -->
+  <text x="50" y="262" font-family="'JetBrains Mono', monospace" font-size="11">
+    <tspan fill="#00d4ff">const </tspan>
+    <tspan fill="#38bdf8">openTo </tspan>
+    <tspan fill="#475569">= </tspan>
+    <tspan fill="#a5b4fc">["Full-time", "Freelance", "OSS"]</tspan>
+  </text>
+  <!-- Line 4 -->
+  <text x="50" y="277" font-family="'JetBrains Mono', monospace" font-size="11">
+    <tspan fill="#00d4ff">const </tspan>
+    <tspan fill="#38bdf8">philosophy </tspan>
+    <tspan fill="#475569">= </tspan>
+    <tspan fill="#7dd3fc">"Ship fast. Iterate faster."</tspan>
+  </text>
+
+  <!-- ══ TECH CHIPS ══ -->
+  <!-- Row label -->
+  <text x="36" y="302" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" fill-opacity="0.5" letter-spacing="2">TECH STACK</text>
+
+  <!-- Chip 1: TypeScript -->
+  <rect x="36" y="310" width="83" height="20" rx="10" fill="#3178c6" fill-opacity="0.12" stroke="#3178c6" stroke-width="0.8" stroke-opacity="0.3"/>
+  <text x="77.5" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#60a5fa" text-anchor="middle">TypeScript</text>
+
+  <!-- Chip 2: Next.js -->
+  <rect x="126" y="310" width="63" height="20" rx="10" fill="#ffffff" fill-opacity="0.05" stroke="#ffffff" stroke-width="0.8" stroke-opacity="0.15"/>
+  <text x="157.5" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0" text-anchor="middle">Next.js</text>
+
+  <!-- Chip 3: React -->
+  <rect x="196" y="310" width="55" height="20" rx="10" fill="#61dafb" fill-opacity="0.1" stroke="#61dafb" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="223.5" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#61dafb" text-anchor="middle">React</text>
+
+  <!-- Chip 4: Node.js -->
+  <rect x="258" y="310" width="63" height="20" rx="10" fill="#339933" fill-opacity="0.12" stroke="#339933" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="289.5" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#86efac" text-anchor="middle">Node.js</text>
+
+  <!-- Chip 5: MongoDB -->
+  <rect x="328" y="310" width="71" height="20" rx="10" fill="#47a248" fill-opacity="0.12" stroke="#47a248" stroke-width="0.8" stroke-opacity="0.25"/>
+  <text x="363.5" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#4ade80" text-anchor="middle">MongoDB</text>
+
+  <!-- Chip 6: Tailwind -->
+  <rect x="406" y="310" width="66" height="20" rx="10" fill="#38bdf8" fill-opacity="0.1" stroke="#38bdf8" stroke-width="0.8" stroke-opacity="0.2"/>
+  <text x="439" y="323.5" font-family="'JetBrains Mono', monospace" font-size="10" fill="#7dd3fc" text-anchor="middle">Tailwind</text>
+
+  <!-- ══ RIGHT PANEL — DETAILS ══ -->
+  <line x1="455" y1="202" x2="455" y2="345" stroke="#00d4ff" stroke-width="0.5" stroke-opacity="0.12"/>
+
+  <!-- Detail rows -->
+  <text x="470" y="220" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" fill-opacity="0.5" letter-spacing="1.5">UNIVERSITY</text>
+  <text x="470" y="233" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">Islamic Univ. of Technology</text>
+
+  <text x="470" y="252" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" fill-opacity="0.5" letter-spacing="1.5">FOCUS</text>
+  <text x="470" y="265" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">Full-Stack · UI/UX · DSA</text>
+
+  <text x="470" y="284" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" fill-opacity="0.5" letter-spacing="1.5">EMAIL</text>
+  <text x="470" y="297" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">riyadhosen40@gmail.com</text>
+
+  <text x="470" y="316" font-family="'JetBrains Mono', monospace" font-size="9" fill="#00d4ff" fill-opacity="0.5" letter-spacing="1.5">PORTFOLIO</text>
+  <text x="470" y="329" font-family="'JetBrains Mono', monospace" font-size="10" fill="#38bdf8">charlie-portfolio-17.netlify.app</text>
+
+  <!-- ══ BOTTOM BAR ══ -->
+  <line x1="36" y1="345" x2="664" y2="345" stroke="#00d4ff" stroke-width="0.5" stroke-opacity="0.12"/>
+
+  <!-- Status pill -->
+  <circle cx="46" cy="358" r="4" fill="#22d35a">
+    <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="55" y="362" font-family="'JetBrains Mono', monospace" font-size="9" fill="#22d35a" letter-spacing="0.5">AVAILABLE FOR OPPORTUNITIES</text>
+
+  <!-- Link tags right -->
+  <rect x="490" y="350" width="52" height="16" rx="4" fill="#00d4ff" fill-opacity="0.05" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.2"/>
+  <text x="516" y="361.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#7dd3fc" text-anchor="middle">GitHub</text>
+
+  <rect x="548" y="350" width="56" height="16" rx="4" fill="#00d4ff" fill-opacity="0.05" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.2"/>
+  <text x="576" y="361.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#7dd3fc" text-anchor="middle">LinkedIn</text>
+
+  <rect x="610" y="350" width="54" height="16" rx="4" fill="#00d4ff" fill-opacity="0.05" stroke="#00d4ff" stroke-width="0.8" stroke-opacity="0.2"/>
+  <text x="637" y="361.5" font-family="'JetBrains Mono', monospace" font-size="9" fill="#7dd3fc" text-anchor="middle">Portfolio</text>
+</svg>
